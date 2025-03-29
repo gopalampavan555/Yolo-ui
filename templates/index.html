@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Object Detection</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { margin: 20px auto; padding: 20px; border: 1px solid #ddd; width: 300px; }
+        input { margin-bottom: 10px; }
+        img { margin-top: 20px; width: 50%; border: 2px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h2>Upload an Image for Object Detection</h2>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required><br>
+        <button type="submit">Upload & Detect</button>
+    </form>
+
+    {% if uploaded %}
+    <h3>Processed Image:</h3>
+    <img src="{{ url_for('result_file', filename=result_image) }}" alt="Processed Image">
+    {% endif %}
+</body>
+</html>
+
